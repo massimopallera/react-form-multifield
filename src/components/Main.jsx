@@ -1,15 +1,12 @@
 import posts from '../assets/db/posts.js'
+import tags from '../assets/db/tags.js'
+import categories from '../assets/db/categories.js'
+
 import { useState } from 'react'
 import List from './List/List'
 import Form from './Form/Form'
 import Input from './Input/Input';
 
-
-const tags = [
-  "js",
-  "css",
-  "html"
-]
 
 export default function Main() {
 
@@ -65,11 +62,27 @@ export default function Main() {
 
           {/* CATEGORY SELECT */}
           <select name="category" id="category">
-            {tags.map( (tag, index) => <option key={index} value={tag}>{tag}</option>)}
+            {categories.map( (cat, index) => <option key={index} value={cat}>{cat}</option>)}
           </select>
 
-          <div>
-            <input type="checkbox" name="" id=""/>
+          <div className="tags">
+            {tags.map((tag,index) => 
+              <>
+                <input
+                  type="checkbox"
+                  id={`${tag}${index}`}
+                  name={`${tag}${index}`}
+                  value={tag}
+                />
+
+                <label htmlFor={`${tag}${index}`}>{tag}</label>
+              </>
+            )}
+          </div>
+
+          <div className="state">
+            <input type="checkbox" name="" id="" />
+            <label htmlFor="">Pubblica</label>
           </div>
 
         </Form>
