@@ -61,3 +61,31 @@ form{
     }
   }
 }
+
+.tags{
+
+  margin: 2rem 0;
+  padding: 1rem 3rem;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  background: #222;
+  border-radius: 10px;
+
+  .tag-item{
+    width: calc((100% / 12) * 3);
+    line-height: 1.5rem;
+  }
+}
+label{
+  font-size: 18px;
+  padding-left: .5rem;
+}
+
+#category{
+  padding: .5rem .75rem;
+  font-size: 16px;
+  border-radius: 18px;
+}
+

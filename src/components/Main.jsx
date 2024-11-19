@@ -67,7 +67,7 @@ export default function Main() {
 
           <div className="tags">
             {tags.map((tag,index) => 
-              <>
+              <div className="tag-item">
                 <input
                   type="checkbox"
                   id={`${tag}${index}`}
@@ -76,7 +76,7 @@ export default function Main() {
                 />
 
                 <label htmlFor={`${tag}${index}`}>{tag}</label>
-              </>
+              </div>
             )}
           </div>
 
