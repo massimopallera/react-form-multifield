@@ -4,6 +4,13 @@ import List from './List/List'
 import Form from './Form/Form'
 import Input from './Input/Input';
 
+
+const tags = [
+  "js",
+  "css",
+  "html"
+]
+
 export default function Main() {
 
   const [article, setArticle] = useState(posts)
@@ -35,6 +42,8 @@ export default function Main() {
           newTitle={newTitle}
           newContent={newContent}
         >
+
+          {/* TITLE INPUT */}
           <Input
             type={'text'}
             title={"Titolo"}
@@ -44,6 +53,7 @@ export default function Main() {
             onChange={e => setNewTitle(e.target.value)}
           />
 
+          {/* CONTENT INPUT */}
           <Input
             type={'text'}
             title={"Contenuto"}
@@ -52,6 +62,15 @@ export default function Main() {
             value={newContent}
             onChange={e => setNewContent(e.target.value)}
           />
+
+          {/* CATEGORY SELECT */}
+          <select name="category" id="category">
+            {tags.map( (tag, index) => <option key={index} value={tag}>{tag}</option>)}
+          </select>
+
+          <div>
+            <input type="checkbox" name="" id=""/>
+          </div>
 
         </Form>
 
