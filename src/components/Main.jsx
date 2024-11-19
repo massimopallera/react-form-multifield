@@ -1,30 +1,57 @@
-import posts from '../assets/db/posts.js'
+import { useState } from 'react'
+
+import blogPosts from '../assets/db/posts.js'
 import tags from '../assets/db/tags.js'
 import categories from '../assets/db/categories.js'
 
-import { useState } from 'react'
 import List from './List/List'
 import Form from './Form/Form'
 import Input from './Input/Input';
 
+const initialFormData = {
+  title: '',
+  content: '',
+  category: '',
+  tags: [],
+  published: false
+}
 
 export default function Main() {
 
-  const [article, setArticle] = useState(posts)
-  const [newTitle, setNewTitle] = useState("")
-  const [newContent, setNewContent] = useState("")
+  const [posts, setPosts] = useState(blogPosts)
+  const [formData, setFormData] = useState(initialFormData);
+  const [formTags, setFormTags] = useState([])
+
+
+  function handleFormData(e) {
+    const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
+    setFormData(
+        {
+          ...formData,
+          [e.target.name]: value
+        }
+      )    
+    }
+    
+
+    // console.log(formData);
+    
 
   function handleSubmit(e) { 
     e.preventDefault()
-    setArticle([
-      ...article,
+    setPosts([
+      ...posts,
       {
-        id: article.length + 1,
-        title: newTitle,
-        content: newContent,
+        id: posts.length + 1,
+        title: formData.title,
+        content: formData.content,
+        category: formData.category,
+        tags: formTags,
+        published: formData.published,
       }])
     
-    // console.log(article);
+    console.log(posts);
   }
 
   return (
@@ -32,22 +59,17 @@ export default function Main() {
       <div className="container">
 
         {/* FORM */}
-        <Form
-          onSubmit={handleSubmit}
-          onTitleChange={e => setNewTitle(e.target.value)}
-          onContentChange={e => setNewContent(e.target.value)}
-          newTitle={newTitle}
-          newContent={newContent}
-        >
+        <Form onSubmit={handleSubmit}>
 
           {/* TITLE INPUT */}
           <Input
             type={'text'}
             title={"Titolo"}
             placeholder={"Inserisci il titolo"}
-            id='newArticle-title'
-            value={newTitle}
-            onChange={e => setNewTitle(e.target.value)}
+            id='newFormData-title'
+            name="title"
+            value={formData.title}
+            onChange={handleFormData}
           />
 
           {/* CONTENT INPUT */}
@@ -55,41 +77,51 @@ export default function Main() {
             type={'text'}
             title={"Contenuto"}
             placeholder={"Inserisci il contenuto"}
-            id='newArticle-content'
-            value={newContent}
-            onChange={e => setNewContent(e.target.value)}
+            id='newFormData-content'
+            value={formData.content}
+            onChange={handleFormData}
+            name="content"
           />
 
           {/* CATEGORY SELECT */}
-          <select name="category" id="category">
-            {categories.map( (cat, index) => <option key={index} value={cat}>{cat}</option>)}
+          <select name="category" id="category" value={formData.category} onChange={handleFormData}>
+            {categories.map((cat, index) =>
+              <option key={index} value={cat}>{cat}</option>
+            )}
           </select>
 
+
+          {/* TAGS CHECKBOXS */}
           <div className="tags">
             {tags.map((tag,index) => 
-              <div className="tag-item">
+              <div className="tag-item" key={index} >
                 <input
                   type="checkbox"
-                  id={`${tag}${index}`}
-                  name={`${tag}${index}`}
+                  id={tag}
+                  name={tag}
                   value={tag}
+                  onChange={e => {
+                    setFormTags([...formTags, e.target.value])
+                    console.log(formTags);
+                    
+                  }}
                 />
 
-                <label htmlFor={`${tag}${index}`}>{tag}</label>
+                <label htmlFor={tag}>{tag}</label>
               </div>
             )}
           </div>
 
           <div className="state">
             <input type="checkbox" name="" id="" />
-            <label htmlFor="">Pubblica</label>
+            <label htmlFor="public">Pubblica</label>
           </div>
 
         </Form>
 
         {/* LIST */}
         <List
-          arr={article}
+          arr={posts}
           arrKey={'content'}
         />
       </div>

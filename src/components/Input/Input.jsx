@@ -4,7 +4,8 @@ export default function Input({
   placeholder,
   value,
   onChange,
-  id
+  id,
+  name
 }) {
   return (
     <>
@@ -14,7 +15,8 @@ export default function Input({
           id={id}
           value={value}
           placeholder={placeholder}
-          onChange={onChange}
+        onChange={onChange}
+        name={name}
         />
     </>
   )
