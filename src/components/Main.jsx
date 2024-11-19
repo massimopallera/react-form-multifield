@@ -12,7 +12,7 @@ const initialFormData = {
   title: '',
   content: '',
   category: '',
-  tags: [],
+  // tags: [],
   published: false
 }
 
@@ -25,7 +25,7 @@ export default function Main() {
 
   function handleFormData(e) {
     const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-
+    console.log(value)
     setFormData(
         {
           ...formData,
@@ -35,8 +35,19 @@ export default function Main() {
     }
     
 
-    // console.log(formData);
     
+  function handleFormTags(e) {
+    const isChecked = e.target.checked
+    const value = e.target.value
+    if (!formTags.includes(value) && isChecked) {
+      setFormTags([...formTags, value])
+    } else if (formTags.includes(value) && !isChecked) {
+      const newTags = formTags.filter(tag => tag != value)
+      setFormTags(newTags)
+    }
+    console.log(formTags);
+    
+  }
 
   function handleSubmit(e) { 
     e.preventDefault()
@@ -100,11 +111,7 @@ export default function Main() {
                   id={tag}
                   name={tag}
                   value={tag}
-                  onChange={e => {
-                    setFormTags([...formTags, e.target.value])
-                    console.log(formTags);
-                    
-                  }}
+                  onChange={handleFormTags}
                 />
 
                 <label htmlFor={tag}>{tag}</label>
@@ -113,17 +120,14 @@ export default function Main() {
           </div>
 
           <div className="state">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="published" id="" onChange={handleFormData}/>
             <label htmlFor="public">Pubblica</label>
           </div>
 
         </Form>
 
         {/* LIST */}
-        <List
-          arr={posts}
-          arrKey={'content'}
-        />
+        <List arr={posts}/>
       </div>
     </main>
   )
