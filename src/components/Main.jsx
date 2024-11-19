@@ -1,17 +1,31 @@
-export default function Main({
-  article, 
-  newTitle, 
-  newContent, 
-  handleSubmit, 
-  setNewTitle, 
-  setNewContent
+import posts from '../assets/db/posts.js'
+import { useState } from 'react'
+import List from './List/List'
 
-}) {
+export default function Main() {
+
+  const [article, setArticle] = useState(posts)
+  const [newTitle, setNewTitle] = useState("")
+  const [newContent, setNewContent] = useState("")
+
+  function handleSubmit(e) { 
+    e.preventDefault()
+    setArticle([
+      ...article,
+      {
+        id: article.length + 1,
+        title: newTitle,
+        content: newContent,
+      }])
+    
+    console.log(article);
+  }
 
   return (
     <main>
         <div className="container">
 
+        {/* FORM */}
         <form onSubmit={handleSubmit}>
 
             <h2>Title</h2>
@@ -37,15 +51,11 @@ export default function Main({
           </div>
         </form>
 
-
-        <div className="list">
-          <ol>
-            {article.map((post, index) => 
-              <li key={index}>
-                {post.content}
-            </li>)}
-          </ol>
-        </div>
+        {/* LIST */}
+        <List
+          arr={article}
+          arrKey={'content'}
+        />
       </div>
 
       </main>
