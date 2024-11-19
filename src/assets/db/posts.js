@@ -6,7 +6,7 @@ export default [
     category: "Tech",
     tags: ["JavaScript", "Programmazione", "Frontend"],
     content: "Suggerimenti e risorse per apprendere JavaScript in poco tempo.",
-    published: true
+    published: false
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export default [
     category: "Lifestyle",
     tags: ["Mindfulness", "Benessere", "Meditazione"],
     content: "Scopri come la mindfulness può migliorare la tua qualità di vita.",
-    published: true
+    published: false
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export default [
     category: "Health",
     tags: ["Salute", "Nutrizione", "Benessere"],
     content: "Un elenco di alimenti essenziali per mantenere uno stile di vita sano.",
-    published: true
+    published: false
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export default [
     category: "Education",
     tags: ["Studio", "E-learning", "Produttività"],
     content: "Consigli pratici per rendere lo studio online più efficace.",
-    published: true
+    published: false
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ export default [
     category: "Business",
     tags: ["Startup", "Imprenditoria", "Finanza"],
     content: "Tutto ciò che devi sapere per iniziare il tuo viaggio imprenditoriale.",
-    published: true
+    published: false
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ export default [
     category: "Tech",
     tags: ["React", "JavaScript", "Web Development"],
     content: "Scopri i concetti base di React per iniziare a creare applicazioni.",
-    published: true
+    published: false
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ export default [
     category: "Lifestyle",
     tags: ["Routine", "Produttività", "Benessere"],
     content: "Come iniziare la giornata con il piede giusto.",
-    published: true
+    published: false
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ export default [
     category: "Health",
     tags: ["Postura", "Esercizi", "Benessere"],
     content: "Una serie di esercizi per correggere la postura e alleviare il dolore.",
-    published: true
+    published: false
   },
   {
     id: 9,
@@ -78,7 +78,7 @@ export default [
     category: "Education",
     tags: ["Programmazione", "E-learning", "Risorse"],
     content: "Una lista di corsi online per imparare a programmare.",
-    published: true
+    published: false
   },
   {
     id: 10,
@@ -87,7 +87,7 @@ export default [
     category: "Business",
     tags: ["Marketing", "Digital", "Strategie"],
     content: "Idee e tendenze per migliorare la tua strategia di marketing online.",
-    published: true
+    published: false
   },
   {
     id: 11,
@@ -96,7 +96,7 @@ export default [
     category: "Tech",
     tags: ["CSS", "Frontend", "Design"],
     content: "Consigli per diventare un esperto in CSS.",
-    published: true
+    published: false
   },
   {
     id: 12,
@@ -105,7 +105,7 @@ export default [
     category: "Lifestyle",
     tags: ["Stress", "Mindfulness", "Relax"],
     content: "Tecniche per gestire e ridurre lo stress nella vita quotidiana.",
-    published: true
+    published: false
   },
   {
     id: 13,
@@ -114,7 +114,7 @@ export default [
     category: "Health",
     tags: ["Integratori", "Salute", "Benessere"],
     content: "Scopri quali integratori possono migliorare il tuo benessere.",
-    published: true
+    published: false
   },
   {
     id: 14,
@@ -123,7 +123,7 @@ export default [
     category: "Education",
     tags: ["CV", "Carriera", "Consigli"],
     content: "Suggerimenti per creare un curriculum che colpisca i recruiter.",
-    published: true
+    published: false
   },
   {
     id: 15,
@@ -132,7 +132,7 @@ export default [
     category: "Business",
     tags: ["Business Plan", "Strategia", "Startup"],
     content: "Le basi per sviluppare un piano di successo per la tua attività.",
-    published: true
+    published: false
   },
   {
     id: 16,
@@ -141,7 +141,7 @@ export default [
     category: "Tech",
     tags: ["JavaScript", "Novità", "2024"],
     content: "Un riepilogo delle novità più interessanti di JavaScript quest'anno.",
-    published: true
+    published: false
   },
   {
     id: 17,
@@ -150,7 +150,7 @@ export default [
     category: "Lifestyle",
     tags: ["Relazioni", "Comunicazione", "Benessere"],
     content: "Consigli per costruire e mantenere relazioni sane.",
-    published: true
+    published: false
   },
   {
     id: 18,
@@ -159,7 +159,7 @@ export default [
     category: "Health",
     tags: ["Fitness", "Esercizio", "Benessere"],
     content: "I benefici dell'attività fisica per la mente e il corpo.",
-    published: true
+    published: false
   },
   {
     id: 19,
@@ -168,7 +168,7 @@ export default [
     category: "Education",
     tags: ["Produttività", "App", "Gestione del Tempo"],
     content: "Un elenco di app utili per migliorare la gestione del tempo.",
-    published: true
+    published: false
   },
   {
     id: 20,
@@ -177,7 +177,7 @@ export default [
     category: "Business",
     tags: ["Startup", "Finanza", "Investimenti"],
     content: "Strategie e fonti di finanziamento per nuove attività.",
-    published: true
+    published: false
   },
   {
     id: 21,
@@ -186,7 +186,7 @@ export default [
     category: "Tech",
     tags: ["Portfolio", "Sviluppatore", "Web Design"],
     content: "Suggerimenti per mettere in mostra le tue abilità tecniche.",
-    published: true
+    published: false
   },
   {
     id: 22,
@@ -195,7 +195,7 @@ export default [
     category: "Lifestyle",
     tags: ["Minimalismo", "Benessere", "Organizzazione"],
     content: "Come semplificare la tua vita e concentrarti su ciò che conta.",
-    published: true
+    published: false
   },
   {
     id: 23,
@@ -204,7 +204,7 @@ export default [
     category: "Health",
     tags: ["Salute Mentale", "Esercizi", "Benessere"],
     content: "Attività che migliorano la tua salute mentale.",
-    published: true
+    published: false
   },
   {
     id: 24,
@@ -213,7 +213,7 @@ export default [
     category: "Education",
     tags: ["Borse di Studio", "Università", "Risorse"],
     content: "Guida passo passo per ottenere una borsa di studio.",
-    published: true
+    published: false
   },
   {
     id: 25,
@@ -222,6 +222,6 @@ export default [
     category: "Business",
     tags: ["Internazionalizzazione", "Business", "Strategia"],
     content: "Consigli per portare il tuo business su scala globale.",
-    published: true
+    published: false
   }
 ];

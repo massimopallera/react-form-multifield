@@ -12,20 +12,20 @@ const initialFormData = {
   title: '',
   content: '',
   category: '',
-  // tags: [],
+  tags: [],
   published: false
 }
 
 export default function Main() {
 
   const [posts, setPosts] = useState(blogPosts)
+  const [filteredPosts, setFilteredPosts] = useState(posts.filter(post => post.published))
   const [formData, setFormData] = useState(initialFormData);
-  const [formTags, setFormTags] = useState([])
 
 
   function handleFormData(e) {
     const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-    console.log(value)
+    // console.log(value)
     setFormData(
         {
           ...formData,
@@ -39,13 +39,20 @@ export default function Main() {
   function handleFormTags(e) {
     const isChecked = e.target.checked
     const value = e.target.value
-    if (!formTags.includes(value) && isChecked) {
-      setFormTags([...formTags, value])
-    } else if (formTags.includes(value) && !isChecked) {
-      const newTags = formTags.filter(tag => tag != value)
-      setFormTags(newTags)
+
+    if (!formData.tags.includes(value) && isChecked) {
+      setFormData({
+        ...formData,
+        tags:[...formData.tags, value]
+      })
+    } else if (formData.tags.includes(value) && !isChecked) {
+      const newTags = formData.tags.filter(tag => tag != value)
+      setFormData({
+        ...formData,
+        tags: newTags
+      })
     }
-    console.log(formTags);
+    // console.log(formTags);
     
   }
 
@@ -58,11 +65,15 @@ export default function Main() {
         title: formData.title,
         content: formData.content,
         category: formData.category,
-        tags: formTags,
+        tags: formData.tags,
         published: formData.published,
       }])
     
-    console.log(posts);
+    setFilteredPosts(
+      posts.filter(post => post.published)
+    )
+    
+    // console.log(posts);
   }
 
   return (
@@ -127,7 +138,7 @@ export default function Main() {
         </Form>
 
         {/* LIST */}
-        <List arr={posts}/>
+        <List arr={filteredPosts}/>
       </div>
     </main>
   )
